@@ -16,72 +16,105 @@
       overflow-x: hidden;
     }
 
-    /* HAMBURGER ICON (LEFT) */
-    .hamburger {
-      position: fixed;
-      top: 22px;
-      left: 22px;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 10001;
-      color: #111;
+    /* ----------------------- NAVBAR ------------------------ */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px;
+      border-bottom: 1px solid #eee;
     }
 
-    /* SIDE MENU STYLE (LEFT SIDE, LIKE NICOLE) */
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /* ------------------ HAMBURGER LEFT ---------------------- */
+    .hamburger {
+      font-size: 28px;
+      cursor: pointer;
+      padding: 8px;
+      user-select: none;
+    }
+
+    /* Hide default checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* ------------------ SIDE MENU ---------------------- */
     .side-menu {
       position: fixed;
       top: 0;
-      left: -300px; /* hidden */
-      width: 270px;
+      left: -290px;   /* Hidden */
+      width: 260px;
       height: 100vh;
-      background: #111; /* dark background like Nicole */
-      padding: 50px 30px;
+      background: #111;
+      color: white;
+      padding: 40px 20px;
+      transition: left 0.3s ease;
       display: flex;
       flex-direction: column;
-      gap: 28px;
-      transition: left 0.35s ease-in-out;
-      z-index: 10000;
+      gap: 25px;
+      z-index: 2000;
+    }
+
+    /* Slide-out */
+    #menu-toggle:checked ~ .side-menu {
+      left: 0;
     }
 
     .side-menu a {
       color: white;
       text-decoration: none;
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 300;
+      padding: 5px 0;
+      border-bottom: 1px solid #222;
     }
 
-    /* Pink highlight for elegance */
     .side-menu a:hover {
       color: #e91e63;
     }
 
-    #menu-toggle {
-      display: none;
-    }
-
-    #menu-toggle:checked ~ .side-menu {
+    /* DARK overlay when menu opens */
+    .overlay {
+      position: fixed;
+      top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1500;
     }
 
-    /* PAGE CONTENT */
-    .page {
+    #menu-toggle:checked ~ .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ----------------------- CONTENT ------------------------ */
+    .container {
       max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 20px;
+      margin: auto;
+      padding: 20px;
     }
 
     .subtitle {
-      margin-top: 20px;
+      margin-top: 25px;
       color: #666;
       letter-spacing: 1px;
       font-size: 14px;
     }
 
     h1 {
-      font-size: 46px;
+      font-size: 42px;
       margin-top: 10px;
-      font-weight: 700;
+      line-height: 1.2;
     }
 
     .highlight {
@@ -90,20 +123,19 @@
     }
 
     .tagline {
-      margin-top: 15px;
-      font-size: 19px;
-      max-width: 700px;
+      margin-top: 10px;
+      max-width: 650px;
+      font-size: 18px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HAMBURGER BUTTON (TOP LEFT) -->
-  <label for="menu-toggle" class="hamburger">☰</label>
-  <input type="checkbox" id="menu-toggle" />
+  <!-- HAMBURGER CONTROL -->
+  <input type="checkbox" id="menu-toggle">
 
-  <!-- SIDE MENU LIKE NICOLE -->
+  <!-- SIDE MENU (left slide like Nicole) -->
   <nav class="side-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -112,23 +144,34 @@
     <a href="publications.html">Publications</a>
     <a href="outreach.html">Outreach</a>
     <a href="contact.html">Contact</a>
-    <a href="about_es.html">Español 🇪🇸</a>
+    <a href="about_es.html" class="highlight">ES</a>
   </nav>
 
-  <!-- MAIN PAGE CONTENT -->
-  <div class="page">
+  <!-- OVERLAY BLACK -->
+  <label for="menu-toggle" class="overlay"></label>
+
+  <!-- TOP NAVBAR -->
+  <header class="navbar">
+    <label for="menu-toggle" class="hamburger">☰</label>
+    <div class="logo">Adriana Ariza-Pardo</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
     <p class="subtitle">PLANETARY SCIENCE · LUNAR GEOLOGY</p>
 
-    <h1>Adriana <span class="highlight">Ariza-Pardo</span></h1>
+    <h1>
+      Adriana <span class="highlight">Ariza-Pardo</span>
+    </h1>
 
     <p class="tagline">
-      Building a <span class="highlight">global voice</span> in lunar and Martian geology through
-      planetary science, international collaboration, and exploration-driven research.
+      Building a <span class="highlight">global voice</span> in lunar and Martian geology through planetary science,
+      international collaboration, and exploration-driven research.
     </p>
 
     <p class="tagline">
-      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific
-      foundations of future <span class="highlight">Artemis</span> human missions to the Moon.
+      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific foundations of
+      future <span class="highlight">Artemis</span> human missions to the Moon.
     </p>
   </div>
 
