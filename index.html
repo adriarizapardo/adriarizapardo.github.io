@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adriana Ariza-Pardo | Planetary Scientist</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: white;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* HAMBURGER ICON (LEFT) */
+    .hamburger {
+      position: fixed;
+      top: 22px;
+      left: 22px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10001;
+      color: #111;
+    }
+
+    /* SIDE MENU STYLE (LEFT SIDE, LIKE NICOLE) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -300px; /* hidden */
+      width: 270px;
+      height: 100vh;
+      background: #111; /* dark background like Nicole */
+      padding: 50px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      transition: left 0.35s ease-in-out;
+      z-index: 10000;
+    }
+
+    .side-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    /* Pink highlight for elegance */
+    .side-menu a:hover {
+      color: #e91e63;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #menu-toggle:checked ~ .side-menu {
+      left: 0;
+    }
+
+    /* PAGE CONTENT */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      color: #666;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 46px;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .highlight {
+      color: #e91e63;
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin-top: 15px;
+      font-size: 19px;
+      max-width: 700px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HAMBURGER BUTTON (TOP LEFT) -->
+  <label for="menu-toggle" class="hamburger">☰</label>
+  <input type="checkbox" id="menu-toggle" />
+
+  <!-- SIDE MENU LIKE NICOLE -->
+  <nav class="side-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="contact.html">Contact</a>
+    <a href="about_es.html">Español 🇪🇸</a>
+  </nav>
+
+  <!-- MAIN PAGE CONTENT -->
+  <div class="page">
+    <p class="subtitle">PLANETARY SCIENCE · LUNAR GEOLOGY</p>
+
+    <h1>Adriana <span class="highlight">Ariza-Pardo</span></h1>
+
+    <p class="tagline">
+      Building a <span class="highlight">global voice</span> in lunar and Martian geology through
+      planetary science, international collaboration, and exploration-driven research.
+    </p>
+
+    <p class="tagline">
+      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific
+      foundations of future <span class="highlight">Artemis</span> human missions to the Moon.
+    </p>
+  </div>
+
+</body>
+</html>
