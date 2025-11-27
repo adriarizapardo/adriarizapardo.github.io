@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adriana Ariza-Pardo | Planetary Scientist</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: white;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* NAV DESKTOP */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      z-index: 5;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .menu-desktop {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu-desktop a {
+      text-decoration: none;
+      color: #111;
+      font-size: 16px;
+    }
+
+    /* LANG BUTTON */
+    .lang {
+      font-weight: 600;
+      color: #e91e63;
+    }
+
+    /* MOBILE MENU BUTTON */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    /* MOBILE MENU PANEL */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 270px;
+      background: white;
+      box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+      transform: translateX(-100%);
+      transition: 0.35s ease;
+      padding: 40px 25px;
+      z-index: 20;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      display: block;
+      text-decoration: none;
+      color: #111;
+      padding: 14px 0;
+      font-size: 18px;
+    }
+
+    @media (max-width: 850px) {
+      .menu-desktop { display: none; }
+      .hamburger { display: block; }
+    }
+
+    /* TEXT */
+    .subtitle {
+      margin-top: 20px;
+      color: #666;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 46px;
+      font-weight: 700;
+    }
+
+    .highlight {
+      color: #e91e63;
+      font-weight: 700;
+    }
+
+    .tagline {
+      max-width: 650px;
+      margin-top: 15px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SLIDE OUT MENU (MOBILE) -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="contact.html">Contact</a>
+    <a class="lang" href="about_es.html">ES</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="container">
+    <nav class="navbar">
+      <span class="hamburger" onclick="toggleMenu()">☰</span>
+
+      <div class="logo">Adriana Ariza-Pardo</div>
+
+      <ul class="menu-desktop">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <a class="lang" href="about_es.html">ES</a>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <p class="subtitle">PLANETARY SCIENCE · LUNAR GEOLOGY</p>
+
+    <h1>Adriana <span class="highlight">Ariza-Pardo</span></h1>
+
+    <p class="tagline">
+      Building a <span class="highlight">global voice</span> in lunar and Martian geology through planetary science,
+      international collaboration, and exploration-driven research.
+    </p>
+
+    <p class="tagline">
+      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific foundations of
+      future <span class="highlight">Artemis</span> human missions to the Moon.
+    </p>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
