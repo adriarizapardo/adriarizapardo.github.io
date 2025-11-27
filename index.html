@@ -1,129 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adriana Ariza-Pardo | Planetary Scientist</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --pink: #e91e63;
+      --black: #111;
+      --gray: #666;
+      --light-gray: #f5f5f5;
+      --menu-width: 270px;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
+      color: var(--black);
       background: white;
-      color: #111;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ----------------------- NAVBAR ------------------------ */
-    .navbar {
+    /* NAV - TOP */
+    .topbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 22px;
+      align-items: center;
+      padding: 18px 20px;
       border-bottom: 1px solid #eee;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    /* ------------------ HAMBURGER LEFT ---------------------- */
     .hamburger {
       font-size: 28px;
       cursor: pointer;
-      padding: 8px;
       user-select: none;
     }
 
-    /* Hide default checkbox */
-    #menu-toggle {
-      display: none;
+    .logo {
+      font-family: "Source Serif 4", serif;
+      font-size: 22px;
+      font-weight: 600;
     }
 
-    /* ------------------ SIDE MENU ---------------------- */
-    .side-menu {
+    /* SLIDE MENU */
+    .menu-panel {
       position: fixed;
       top: 0;
-      left: -290px;   /* Hidden */
-      width: 260px;
-      height: 100vh;
-      background: #111;
-      color: white;
-      padding: 40px 20px;
-      transition: left 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      z-index: 2000;
-    }
-
-    /* Slide-out */
-    #menu-toggle:checked ~ .side-menu {
-      left: 0;
-    }
-
-    .side-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 300;
-      padding: 5px 0;
-      border-bottom: 1px solid #222;
-    }
-
-    .side-menu a:hover {
-      color: #e91e63;
-    }
-
-    /* DARK overlay when menu opens */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      left: -270px;
+      width: var(--menu-width);
       height: 100%;
-      background: rgba(0,0,0,0.45);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1500;
+      background: white;
+      padding: 30px 25px;
+      box-shadow: 4px 0 18px rgba(0, 0, 0, 0.08);
+      transition: left 0.3s ease;
+      z-index: 20;
     }
 
-    #menu-toggle:checked ~ .overlay {
-      opacity: 1;
-      pointer-events: auto;
+    .menu-panel.open {
+      left: 0;
     }
 
-    /* ----------------------- CONTENT ------------------------ */
+    .menu-title {
+      margin-bottom: 25px;
+      font-family: "Source Serif 4", serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--pink);
+    }
+
+    .menu a {
+      display: block;
+      text-decoration: none;
+      color: var(--black);
+      padding: 10px 0;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu a:hover {
+      color: var(--pink);
+    }
+
+    /* MAIN CONTENT */
     .container {
       max-width: 900px;
-      margin: auto;
-      padding: 20px;
+      padding: 25px;
+      margin: 0 auto;
     }
 
     .subtitle {
-      margin-top: 25px;
-      color: #666;
+      margin-top: 20px;
+      color: var(--gray);
       letter-spacing: 1px;
       font-size: 14px;
     }
 
     h1 {
-      font-size: 42px;
+      font-family: "Source Serif 4", serif;
+      font-size: 46px;
       margin-top: 10px;
-      line-height: 1.2;
-    }
-
-    .highlight {
-      color: #e91e63;
       font-weight: 700;
     }
 
+    .highlight {
+      color: var(--pink);
+    }
+
     .tagline {
-      margin-top: 10px;
+      margin-top: 15px;
       max-width: 650px;
       font-size: 18px;
     }
@@ -132,48 +122,52 @@
 
 <body>
 
-  <!-- HAMBURGER CONTROL -->
-  <input type="checkbox" id="menu-toggle">
+  <!-- MOBILE MENU PANEL -->
+  <div id="menuPanel" class="menu-panel">
+    <div class="menu-title">Menu</div>
 
-  <!-- SIDE MENU (left slide like Nicole) -->
-  <nav class="side-menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html">Publications</a>
-    <a href="outreach.html">Outreach</a>
-    <a href="contact.html">Contact</a>
-    <a href="about_es.html" class="highlight">ES</a>
-  </nav>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="outreach.html">Outreach</a>
+      <a href="contact.html">Contact</a>
+      <a href="about_es.html" style="color: var(--pink); font-weight:600;">ES / EN</a>
+    </div>
+  </div>
 
-  <!-- OVERLAY BLACK -->
-  <label for="menu-toggle" class="overlay"></label>
-
-  <!-- TOP NAVBAR -->
-  <header class="navbar">
-    <label for="menu-toggle" class="hamburger">☰</label>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <div class="logo">Adriana Ariza-Pardo</div>
-  </header>
+  </div>
 
   <!-- MAIN CONTENT -->
   <div class="container">
     <p class="subtitle">PLANETARY SCIENCE · LUNAR GEOLOGY</p>
 
-    <h1>
-      Adriana <span class="highlight">Ariza-Pardo</span>
-    </h1>
+    <h1>Adriana <span class="highlight">Ariza-Pardo</span></h1>
 
     <p class="tagline">
-      Building a <span class="highlight">global voice</span> in lunar and Martian geology through planetary science,
-      international collaboration, and exploration-driven research.
+      Building a <span class="highlight">global voice</span> in lunar and Martian geology
+      through planetary science, international collaboration, and exploration-driven research.
     </p>
 
     <p class="tagline">
-      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific foundations of
-      future <span class="highlight">Artemis</span> human missions to the Moon.
+      PhD candidate in <span class="highlight">Planetary Sciences</span> contributing to the scientific
+      foundations of future <span class="highlight">Artemis</span> human missions to the Moon.
     </p>
   </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      const panel = document.getElementById("menuPanel");
+      panel.classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
