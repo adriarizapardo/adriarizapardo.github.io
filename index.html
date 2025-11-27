@@ -22,12 +22,12 @@
       padding: 20px;
     }
 
-    /* NAVBAR (DESKTOP) */
+    /* NAVBAR (Desktop) */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 25px 20px;
+      padding: 25px 0;
       border-bottom: 1px solid #eee;
       position: relative;
       z-index: 1000;
@@ -50,17 +50,16 @@
       font-size: 16px;
     }
 
-    .lang {
-      font-weight: 600;
+    .menu .lang {
       color: #e91e63;
+      font-weight: 600;
       text-decoration: none;
-      margin-left: 10px;
     }
 
-    /* HAMBURGER (MOBILE) */
+    /* HAMBURGER */
     .hamburger {
       display: none;
-      font-size: 32px;
+      font-size: 30px;
       cursor: pointer;
       color: #e91e63;
     }
@@ -69,11 +68,11 @@
       display: none;
     }
 
-    /* SIDE MENU (MOBILE) */
+    /* SIDE MENU — MOBILE ONLY */
     .side-menu {
       position: fixed;
       top: 0;
-      right: -300px; /* initially hidden */
+      right: -300px; /* hidden */
       width: 300px;
       height: 100%;
       background: #ffffff;
@@ -87,6 +86,7 @@
       z-index: 9999;
     }
 
+    /* menu links */
     .side-menu a {
       color: #111;
       text-decoration: none;
@@ -96,33 +96,36 @@
       border-bottom: 1px solid #eee;
     }
 
+    /* Language button */
     .side-menu .lang {
       color: #e91e63;
       font-weight: 600;
       border-bottom: none;
     }
 
-    /* SUBMENU */
+    /* ----- SUBMENU (future-ready) ----- */
+    .submenu {
+      margin-left: 15px;
+      display: none;
+      padding-top: 5px;
+    }
+
+    .submenu a {
+      font-size: 16px;
+      border-bottom: none;
+      padding: 6px 0;
+    }
+
     .submenu-toggle {
       cursor: pointer;
       font-weight: 600;
       color: #e91e63;
       font-size: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
     }
 
-    .submenu {
-      margin-left: 15px;
-      display: none;
-      flex-direction: column;
-    }
-
-    .submenu a {
-      font-size: 16px;
-      padding: 5px 0;
-      border: none;
-    }
-
-    /* SHOW SIDE MENU */
+    /* checkbox opens mobile menu */
     #menu-toggle:checked ~ .side-menu {
       right: 0;
     }
@@ -131,12 +134,13 @@
       .hamburger {
         display: block;
       }
-      .menu {
-        display: none;
+
+      .menu { 
+        display: none; 
       }
     }
 
-    /* TEXT STYLES */
+    /* TEXT STYLE */
     .subtitle {
       margin-top: 20px;
       color: #666;
@@ -165,48 +169,52 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">Adriana Ariza-Pardo</div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">Adriana Ariza-Pardo</div>
 
-    <!-- Mobile menu toggle -->
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">☰</label>
+      <!-- MOBILE ICON -->
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="hamburger">☰</label>
 
-    <!-- Desktop Navigation -->
-    <ul class="menu">
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="outreach.html">Outreach</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <a class="lang" href="about_es.html">ES</a>
-    </ul>
+      <!-- DESKTOP MENU -->
+      <ul class="menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <a class="lang" href="about_es.html">ES</a>
+      </ul>
 
-    <!-- SIDE MENU (Mobile) -->
-    <div class="side-menu">
+      <!-- MOBILE SIDE MENU -->
+      <div class="side-menu">
 
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
 
-      <!-- Submenu example -->
-      <div class="submenu-toggle" onclick="toggleSubmenu('projects-sub')">Projects ▾</div>
-      <div id="projects-sub" class="submenu">
-        <a href="projects.html">All Projects</a>
-        <a href="#">Lunar Mapping</a>
-        <a href="#">Mars Lava Flows</a>
-        <a href="#">Analog Fieldwork</a>
+        <!-- Submenu Example -->
+        <div class="submenu-toggle" onclick="toggleSubmenu('projects-sub')">
+          Projects ▾
+        </div>
+
+        <div id="projects-sub" class="submenu">
+          <a href="projects.html">All Projects</a>
+          <a href="#">Lunar Mapping</a>
+          <a href="#">Mars Lava Flows</a>
+          <a href="#">Analog Fieldwork</a>
+        </div>
+
+        <a href="publications.html">Publications</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="contact.html">Contact</a>
+
+        <a class="lang" href="about_es.html">ES</a>
       </div>
-
-      <a href="publications.html">Publications</a>
-      <a href="outreach.html">Outreach</a>
-      <a href="contact.html">Contact</a>
-
-      <a class="lang" href="about_es.html">ES</a>
-
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <div class="container">
@@ -227,12 +235,12 @@
     </p>
   </div>
 
-  <script>
-    function toggleSubmenu(id) {
-      const el = document.getElementById(id);
-      el.style.display = (el.style.display === "block") ? "none" : "block";
-    }
-  </script>
+<script>
+  function toggleSubmenu(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+  }
+</script>
 
 </body>
 </html>
