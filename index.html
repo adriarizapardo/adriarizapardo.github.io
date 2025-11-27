@@ -1,384 +1,242 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adriana Ariza Pardo | Planetary Scientist</title>
-  <style>
-    :root {
-      --accent: #ff4c8b; /* Rosa estilo Einstein */
-      --bg: #ffffff;
-      --text: #1f1f1f;
-      --muted: #666666;
-      --border: #e5e5e5;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-serif: "Georgia", "Times New Roman", serif;
-    }
+  <title>Adriana Ariza-Pardo | Planetary Science</title>
 
-    * {
-      box-sizing: border-box;
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Inter", sans-serif;
+      color: #111;
       line-height: 1.6;
-      padding: 2rem 1.5rem 3rem;
-      max-width: 960px;
+      background-color: #ffffff;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 900px;
       margin: 0 auto;
+      padding: 20px;
     }
 
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .top-row {
+    /* NAVBAR */
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
     }
 
-    .name-block h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 2.6vw + 1rem, 2.6rem);
-      letter-spacing: 0.03em;
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
     }
 
-    .name-block h1 span {
-      color: var(--accent);
-    }
-
-    .tagline {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 480px;
-    }
-
-    nav ul {
+    .menu {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.9rem;
+      gap: 30px;
     }
 
-    nav a {
+    .menu a {
       text-decoration: none;
-      color: var(--muted);
-      position: relative;
-      padding-bottom: 0.2rem;
+      font-size: 16px;
+      color: #111;
     }
 
-    nav a:hover,
-    nav a:focus {
-      color: var(--accent);
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s ease;
+    #menu-toggle {
+      display: none;
     }
 
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      #menu-toggle:checked ~ .menu {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
     }
 
-    .pill {
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      display: inline-block;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 2.5rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
+    /* TITLES */
+    h1 {
+      font-size: 44px;
+      margin-top: 20px;
     }
 
     h2 {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 0.75rem;
-    }
-
-    h2 span {
-      color: var(--accent);
+      margin-top: 50px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #333;
     }
 
     .highlight {
-      color: var(--accent);
-      font-weight: 600;
+      color: #e91e63; /* rosado elegante */
+      font-weight: 700;
     }
 
-    .block {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
+    /* SECTION TITLES NUMBERED */
+    .section-number {
+      font-weight: 700;
+      color: #e91e63;
+      font-size: 18px;
+      letter-spacing: 2px;
     }
 
-    .meta {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .list {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .list li span {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .badge {
-      display: inline-block;
-      border-radius: 999px;
-      padding: 0.15rem 0.6rem;
-      font-size: 0.75rem;
-      border: 1px solid var(--border);
-      margin-right: 0.25rem;
-      margin-top: 0.25rem;
-    }
-
-    .badge-rose {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
-      font-size: 0.86rem;
-    }
-
-    .contact-links a {
-      text-decoration: none;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-      padding-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 780px) {
-      body {
-        padding: 1.5rem 1rem 2.5rem;
-      }
-      main {
-        grid-template-columns: 1fr;
-      }
-      .top-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        gap: 0.7rem 1.2rem;
-      }
+    /* SMALL CAPS */
+    .smallcaps {
+      font-variant: small-caps;
+      font-size: 18px;
+      margin-top: 40px;
+      color: #222;
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="top-row">
-      <div class="name-block">
-        <div class="pill">Planetary Science · Lunar Geology</div>
-        <h1>Adriana <span>Ariza Pardo</span></h1>
-        <p class="tagline">
-          Doctoranda en <span class="highlight">Ciencias Planetarias</span>, explorando el vulcanismo y la
-          geología de la <span class="highlight">Luna</span> y <span class="highlight">Marte</span> para apoyar las futuras misiones
-          <span class="highlight">Artemis</span>.
-        </p>
-      </div>
-    </div>
 
-    <nav aria-label="Navegación principal">
-      <ul>
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#research">Investigación</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#publications">Publicaciones</a></li>
-        <li><a href="#outreach">Divulgación</a></li>
-        <li><a href="#contact">Contacto</a></li>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">Adriana Ariza-Pardo</div>
+
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">☰</label>
+
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#outreach">Outreach</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
 
-  <main>
-    <!-- COLUMNA IZQUIERDA -->
-    <div>
-      <section id="about">
-        <h2><span>01</span> · Sobre mí</h2>
-        <div class="block">
-          <p>
-            Soy geocientífica y <span class="highlight">doctoranda en Ciencias Planetarias</span> en la
-            Università “G. d’Annunzio” (Chieti–Pescara, Italia). Mi trabajo se centra en el
-            <span class="highlight">mapeo geológico de la Luna</span> y el estudio de flujos de lava como análogos
-            para comprender la evolución volcánica de otros mundos.
-          </p>
-          <p style="margin-top:0.7rem;">
-            Colaboro con equipos internacionales para preparar la exploración humana en el marco de
-            las misiones <span class="highlight">Artemis</span>, integrando datos de teledetección,
-            experimentos de laboratorio y análogos terrestres.
-          </p>
-        </div>
-      </section>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <p>PLANETARY SCIENCE · LUNAR GEOLOGY</p>
 
-      <section id="research">
-        <h2><span>02</span> · Líneas de Investigación</h2>
-        <div class="block">
-          <div class="meta">ACTUAL</div>
-          <ul class="list">
-            <li>
-              <strong>Márgenes de mares lunares &amp; Artemis:</strong>
-              mapeo geológico de alta resolución para evaluar la historia volcánica y el potencial de recursos
-              in situ (ISRU) en regiones clave del programa Artemis.
-            </li>
-            <li>
-              <strong>Flujos de lava extensos en Marte:</strong>
-              uso de análogos y propiedades térmicas para entender cómo los flujos pueden alcanzar
-              <span class="highlight">cientos de kilómetros</span> de longitud.
-            </li>
-            <li>
-              <strong>Vulcanismo en ambientes extremos:</strong>
-              experiencia previa en el <span class="highlight">volcán Isla Decepción (Antártida)</span> y
-              otros sistemas basálticos como laboratorios naturales.
-            </li>
-          </ul>
-        </div>
-      </section>
+    <h1>
+      Adriana <span class="highlight">Ariza-Pardo</span>
+    </h1>
 
-      <section id="projects">
-        <h2><span>03</span> · Proyectos Seleccionados</h2>
-        <div class="block">
-          <ul class="list">
-            <li>
-              <strong>Geological &amp; ISRU Mapping for Artemis</strong><br />
-              <span>Mapas geológicos y de potencial de recursos de una región objetivo en el borde de un
-              mare lunar, integrando datos LRO, Kaguya, Chandrayaan y derivados topográficos.</span>
-            </li>
-            <li>
-              <strong>Analog Lava Flows · Marte</strong><br />
-              <span>Estudio experimental de flujos de lava y propiedades térmicas como análogo para
-              flujos marcianos de gran extensión.</span>
-            </li>
-            <li>
-              <strong>Antarctic Volcanism · Deception Island</strong><br />
-              <span>Trabajo de campo y análisis de muestras para entender la historia eruptiva de un
-              sistema volcánico activo en la Antártida.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
+    <p>
+      PhD candidate in <span class="highlight">Planetary Sciences</span>, exploring volcanism and the geology of the
+      <span class="highlight">Moon</span> and <span class="highlight">Mars</span> to support future missions under NASA's
+      <span class="highlight">Artemis</span> program.
+    </p>
 
-    <!-- COLUMNA DERECHA -->
-    <aside>
-      <section id="publications">
-        <h2><span>04</span> · Publicaciones &amp; Charlas</h2>
-        <div class="block">
-          <div class="meta">SELECCIÓN</div>
-          <ul class="list">
-            <li>
-              <strong>Flujos de lava… pero en Marte</strong><br />
-              <span>Charla invitada sobre vulcanismo efusivo marciano en el 1er Encuentro de Redes de
-              Ciencias Planetarias y Espaciales en Latinoamérica (2025).</span>
-            </li>
-            <li>
-              <strong>Investigación en Isla Decepción (Antártida)</strong><br />
-              <span>Participación destacada en la VIII Expedición Científica de Colombia a la Antártida,
-              con apariciones en medios como <span class="highlight">Forbes</span> y <span class="highlight">Eos</span>.</span>
-            </li>
-            <li>
-              <span>Más publicaciones y resúmenes próximamente…</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+    <!-- ABOUT -->
+    <h2 id="about">
+      <span class="section-number">01 ·</span> ABOUT
+    </h2>
 
-      <section id="outreach">
-        <h2><span>05</span> · Divulgación &amp; Comunidad</h2>
-        <div class="block">
-          <p>
-            Me apasiona acercar la <span class="highlight">ciencia planetaria</span> a más personas a través de
-            charlas, redes sociales y colaboraciones con iniciativas latinoamericanas.
-          </p>
-          <div style="margin-top:0.7rem;">
-            <span class="badge badge-rose">Ciencia planetaria en español</span>
-            <span class="badge">Antártida &amp; volcanes</span>
-            <span class="badge">Mujeres en ciencia</span>
-          </div>
-        </div>
-      </section>
+    <p>
+      I am a geoscientist and <span class="highlight">PhD candidate in Planetary Sciences</span> at the Università “G. d’Annunzio”
+      (Chieti–Pescara, Italy). My work focuses on the
+      <span class="highlight">geologic mapping of the Moon</span> and the study of lava flows as analogs to better understand
+      volcanic evolution on other worlds.
+    </p>
 
-      <section id="contact">
-        <h2><span>06</span> · Contacto</h2>
-        <div class="block">
-          <p>¿Te interesa colaborar, invitarme a una charla o conocer más sobre mis proyectos?</p>
-          <div class="contact-links">
-            <a href="mailto:adriarizapardo@gmail.com">adriarizapardo@gmail.com</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="#" target="_blank" rel="noopener">ResearchGate</a>
-            <a href="#" target="_blank" rel="noopener">ORCID</a>
-            <a href="#" target="_blank" rel="noopener">Instagram</a>
-          </div>
-        </div>
-      </section>
-    </aside>
-  </main>
+    <p>
+      I collaborate with international teams preparing for human exploration under the
+      <span class="highlight">Artemis missions</span>, integrating remote sensing data, laboratory experiments, and terrestrial analog studies.
+    </p>
 
-  <footer>
-    <span>© <span class="highlight">Adriana Ariza Pardo</span> · 2025</span>
-    <span>Sitio minimalista diseñado para crecer con mi investigación.</span>
-  </footer>
+    <!-- RESEARCH -->
+    <h2 id="research">
+      <span class="section-number">02 ·</span> RESEARCH LINES
+    </h2>
+
+    <p class="smallcaps">Current</p>
+
+    <p>
+      <b>Lunar mare margins & Artemis:</b>  
+      High-resolution geological mapping to evaluate volcanic history and in-situ resource potential (ISRU) in key Artemis regions.
+    </p>
+
+    <p>
+      <b>Extensive lava flows on Mars:</b>  
+      Use of analogs and thermal properties to understand how Martian lava flows can reach hundreds of kilometers in length.
+    </p>
+
+    <!-- PROJECTS -->
+    <h2 id="projects">
+      <span class="section-number">03 ·</span> PROJECTS
+    </h2>
+
+    <ul>
+      <li>Lunar mapping for Artemis regions</li>
+      <li>Thermal behavior of analog rocks</li>
+      <li>GIS workflows for planetary geology</li>
+    </ul>
+
+    <!-- PUBLICATIONS -->
+    <h2 id="publications">
+      <span class="section-number">04 ·</span> PUBLICATIONS & TALKS
+    </h2>
+
+    <p><b>Lava Flows… but on Mars</b><br />
+      Invited talk on Martian effusive volcanism at the 1st Latin American Planetary & Space Sciences Network Meeting (2025).
+    </p>
+
+    <p><b>Research in Deception Island (Antarctica)</b><br />
+      Highlighted participation in the VIII Colombian Antarctic Scientific Expedition, featured in <i>Forbes</i> and <i>EOS</i>.
+    </p>
+
+    <p>More publications and summaries coming soon…</p>
+
+    <!-- OUTREACH -->
+    <h2 id="outreach">
+      <span class="section-number">05 ·</span> OUTREACH & COMMUNITY
+    </h2>
+
+    <p>
+      I am passionate about bringing <span class="highlight">planetary science</span> closer to people through public talks, science communication,
+      social media, and outreach initiatives.
+    </p>
+
+    <!-- CONTACT -->
+    <h2 id="contact">
+      <span class="section-number">06 ·</span> CONTACT
+    </h2>
+
+    <p>
+      You can reach me via email or through my social platforms.<br />
+      (We will add buttons/links next)
+    </p>
+
+  </div>
 </body>
 </html>
