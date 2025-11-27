@@ -13,6 +13,7 @@
       font-family: "Inter", sans-serif;
       color: #111;
       background: white;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
@@ -22,7 +23,7 @@
       padding: 20px;
     }
 
-    /* NAVBAR TOP */
+    /* ---------------------- DESKTOP NAV ---------------------- */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -38,63 +39,73 @@
       font-weight: 700;
     }
 
-    /* RIGHT HAMBURGER BUTTON */
-    .hamburger {
-      font-size: 28px;
-      cursor: pointer;
-      font-weight: 700;
-      user-select: none;
+    .menu-desktop {
+      list-style: none;
+      display: flex;
+      gap: 30px;
     }
 
-    /* SIDE MENU PANEL */
-    .side-menu {
+    .menu-desktop a {
+      text-decoration: none;
+      color: #111;
+      font-size: 16px;
+    }
+
+    /* ---------------------- MOBILE ---------------------- */
+
+    /* Ocultar menú desktop en móvil */
+    @media (max-width: 768px) {
+      .menu-desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Ocultar hamburguesa en desktop */
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Drawer panel */
+    .drawer {
       position: fixed;
       top: 0;
-      right: -300px; /* hidden off-screen */
-      width: 280px;
-      height: 100vh;
-      background: #fff;
-      box-shadow: -3px 0 12px rgba(0,0,0,0.12);
-      padding: 30px 25px;
-      transition: 0.35s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      z-index: 100;
+      right: -270px; /* hidden */
+      width: 270px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+      padding: 60px 20px;
+      transition: right 0.35s ease;
+      z-index: 9999;
     }
 
-    .side-menu.open {
+    .drawer.open {
       right: 0;
     }
 
-    .side-menu a {
+    .drawer a {
+      display: block;
       text-decoration: none;
       color: #111;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
       font-size: 18px;
-      padding: 12px 0;
-      font-weight: 400;
     }
 
-    .side-menu a:hover {
+    .drawer .lang {
       color: #e91e63;
-    }
-
-    .lang {
-      margin-top: 20px;
-      font-weight: 700;
-      color: #e91e63;
-    }
-
-    /* CLOSE BUTTON */
-    .close-btn {
-      font-size: 28px;
-      cursor: pointer;
       font-weight: bold;
-      margin-bottom: 20px;
-      color: #e91e63;
-      width: fit-content;
     }
 
-    /* PAGE TEXT */
+    /* ---------------------- TEXT STYLE ---------------------- */
+
     .subtitle {
       margin-top: 20px;
       color: #666;
@@ -105,7 +116,6 @@
     h1 {
       font-size: 42px;
       margin-top: 10px;
-      line-height: 1.2;
     }
 
     .highlight {
@@ -120,17 +130,6 @@
     }
 
   </style>
-
-  <script>
-    function openMenu() {
-      document.getElementById("sideMenu").classList.add("open");
-    }
-
-    function closeMenu() {
-      document.getElementById("sideMenu").classList.remove("open");
-    }
-  </script>
-
 </head>
 
 <body>
@@ -139,24 +138,40 @@
   <div class="container">
     <nav class="navbar">
       <div class="logo">Adriana Ariza-Pardo</div>
-      <div class="hamburger" onclick="openMenu()">☰</div>
+
+      <!-- DESKTOP MENU -->
+      <ul class="menu-desktop">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="lang" href="about_es.html">ES</a></li>
+      </ul>
+
+      <!-- MOBILE HAMBURGER -->
+      <div class="hamburger" onclick="toggleDrawer()">☰</div>
     </nav>
   </div>
 
-  <!-- SIDE MENU (OFF-CANVAS) -->
-  <div class="side-menu" id="sideMenu">
-      <div class="close-btn" onclick="closeMenu()">×</div>
-
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="projects.html">Projects</a>
-      <a href="publications.html">Publications</a>
-      <a href="outreach.html">Outreach</a>
-      <a href="contact.html">Contact</a>
-
-      <a class="lang" href="about_es.html">ES</a>
+  <!-- MOBILE DRAWER MENU -->
+  <div class="drawer" id="drawer">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="contact.html">Contact</a>
+    <a class="lang" href="about_es.html">ES</a>
   </div>
+
+  <script>
+    function toggleDrawer() {
+      document.getElementById("drawer").classList.toggle("open");
+    }
+  </script>
 
   <!-- MAIN CONTENT -->
   <div class="container">
