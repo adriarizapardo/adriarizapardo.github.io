@@ -3,22 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adriana Ariza-Pardo | Planetary Science</title>
+  <title>Adriana Ariza-Pardo | Planetary Scientist</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: "Inter", sans-serif;
       color: #111;
+      background: white;
       line-height: 1.6;
-      background-color: #ffffff;
     }
 
-    /* CONTAINER */
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -30,7 +27,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      padding: 25px 0;
       border-bottom: 1px solid #eee;
     }
 
@@ -47,11 +44,20 @@
 
     .menu a {
       text-decoration: none;
-      font-size: 16px;
       color: #111;
+      font-size: 16px;
     }
 
-    /* HAMBURGER MENU */
+    /* Language button */
+    .lang {
+      margin-left: 20px;
+      font-weight: 600;
+      color: #e91e63;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* HAMBURGER */
     .hamburger {
       display: none;
       font-size: 28px;
@@ -66,14 +72,13 @@
       .menu {
         display: none;
         flex-direction: column;
-        gap: 20px;
         background: white;
         padding: 20px;
         position: absolute;
-        top: 60px;
+        top: 80px;
         right: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
 
       #menu-toggle:checked ~ .menu {
@@ -85,158 +90,4 @@
       }
     }
 
-    /* TITLES */
-    h1 {
-      font-size: 44px;
-      margin-top: 20px;
-    }
-
-    h2 {
-      margin-top: 50px;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #333;
-    }
-
-    .highlight {
-      color: #e91e63; /* rosado elegante */
-      font-weight: 700;
-    }
-
-    /* SECTION TITLES NUMBERED */
-    .section-number {
-      font-weight: 700;
-      color: #e91e63;
-      font-size: 18px;
-      letter-spacing: 2px;
-    }
-
-    /* SMALL CAPS */
-    .smallcaps {
-      font-variant: small-caps;
-      font-size: 18px;
-      margin-top: 40px;
-      color: #222;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAVBAR -->
-  <div class="container">
-    <nav class="navbar">
-      <div class="logo">Adriana Ariza-Pardo</div>
-
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="hamburger">☰</label>
-
-      <ul class="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#outreach">Outreach</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="container">
-    <p>PLANETARY SCIENCE · LUNAR GEOLOGY</p>
-
-    <h1>
-      Adriana <span class="highlight">Ariza-Pardo</span>
-    </h1>
-
-    <p>
-      PhD candidate in <span class="highlight">Planetary Sciences</span>, exploring volcanism and the geology of the
-      <span class="highlight">Moon</span> and <span class="highlight">Mars</span> to support future missions under NASA's
-      <span class="highlight">Artemis</span> program.
-    </p>
-
-    <!-- ABOUT -->
-    <h2 id="about">
-      <span class="section-number">01 ·</span> ABOUT
-    </h2>
-
-    <p>
-      I am a geoscientist and <span class="highlight">PhD candidate in Planetary Sciences</span> at the Università “G. d’Annunzio”
-      (Chieti–Pescara, Italy). My work focuses on the
-      <span class="highlight">geologic mapping of the Moon</span> and the study of lava flows as analogs to better understand
-      volcanic evolution on other worlds.
-    </p>
-
-    <p>
-      I collaborate with international teams preparing for human exploration under the
-      <span class="highlight">Artemis missions</span>, integrating remote sensing data, laboratory experiments, and terrestrial analog studies.
-    </p>
-
-    <!-- RESEARCH -->
-    <h2 id="research">
-      <span class="section-number">02 ·</span> RESEARCH LINES
-    </h2>
-
-    <p class="smallcaps">Current</p>
-
-    <p>
-      <b>Lunar mare margins & Artemis:</b>  
-      High-resolution geological mapping to evaluate volcanic history and in-situ resource potential (ISRU) in key Artemis regions.
-    </p>
-
-    <p>
-      <b>Extensive lava flows on Mars:</b>  
-      Use of analogs and thermal properties to understand how Martian lava flows can reach hundreds of kilometers in length.
-    </p>
-
-    <!-- PROJECTS -->
-    <h2 id="projects">
-      <span class="section-number">03 ·</span> PROJECTS
-    </h2>
-
-    <ul>
-      <li>Lunar mapping for Artemis regions</li>
-      <li>Thermal behavior of analog rocks</li>
-      <li>GIS workflows for planetary geology</li>
-    </ul>
-
-    <!-- PUBLICATIONS -->
-    <h2 id="publications">
-      <span class="section-number">04 ·</span> PUBLICATIONS & TALKS
-    </h2>
-
-    <p><b>Lava Flows… but on Mars</b><br />
-      Invited talk on Martian effusive volcanism at the 1st Latin American Planetary & Space Sciences Network Meeting (2025).
-    </p>
-
-    <p><b>Research in Deception Island (Antarctica)</b><br />
-      Highlighted participation in the VIII Colombian Antarctic Scientific Expedition, featured in <i>Forbes</i> and <i>EOS</i>.
-    </p>
-
-    <p>More publications and summaries coming soon…</p>
-
-    <!-- OUTREACH -->
-    <h2 id="outreach">
-      <span class="section-number">05 ·</span> OUTREACH & COMMUNITY
-    </h2>
-
-    <p>
-      I am passionate about bringing <span class="highlight">planetary science</span> closer to people through public talks, science communication,
-      social media, and outreach initiatives.
-    </p>
-
-    <!-- CONTACT -->
-    <h2 id="contact">
-      <span class="section-number">06 ·</span> CONTACT
-    </h2>
-
-    <p>
-      You can reach me via email or through my social platforms.<br />
-      (We will add buttons/links next)
-    </p>
-
-  </div>
-</body>
-</html>
+    /* TE*
